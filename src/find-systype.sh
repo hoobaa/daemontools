@@ -79,8 +79,8 @@ then
     ;;
   esac
 else
-  gcc -c trycpp.c
-  gcc -o trycpp trycpp.o
+  cc -c trycpp.c
+  cc -o trycpp trycpp.o
   case `./trycpp` in
   nextstep)
     oper="nextstep-`hostinfo | sed -n 's/^[ 	]*NeXT Mach \([^:]*\):.*$/\1/p'`"
@@ -126,9 +126,9 @@ i686)
   chip=ppro
 esac
 
-if gcc -c x86cpuid.c
+if cc -c x86cpuid.c
 then
-  if gcc -o x86cpuid x86cpuid.o
+  if cc -o x86cpuid x86cpuid.o
   then
     x86cpuid="`./x86cpuid | tr /: ..`"
     case "$x86cpuid" in
